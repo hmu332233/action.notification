@@ -2,9 +2,10 @@
   "name": "action.notification",
   "version": "1.0.0",
   "description": "",
+  "type": "module",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node main.js",
     "prepare": "husky install"
   },
   "keywords": [],
@@ -14,5 +15,9 @@
     "husky": "^8.0.3",
     "lint-staged": "^15.1.0",
     "prettier": "3.1.0"
+  },
+  "dependencies": {
+    "@actions/core": "^1.10.1",
+    "playwright": "^1.40.0"
   }
 }

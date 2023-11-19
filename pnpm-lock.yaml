@@ -4,6 +4,14 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+dependencies:
+  '@actions/core':
+    specifier: ^1.10.1
+    version: 1.10.1
+  playwright:
+    specifier: ^1.40.0
+    version: 1.40.0
+
 devDependencies:
   husky:
     specifier: ^8.0.3
@@ -16,6 +24,34 @@ devDependencies:
     version: 3.1.0
 
 packages:
+  /@actions/core@1.10.1:
+    resolution:
+      {
+        integrity: sha512-3lBR9EDAY+iYIpTnTIXmWcNbX3T2kCkAEQGIQx4NVQ0575nk2k3GRZDTPQG+vVtS2izSLmINlxXf0uLtnrTP+g==,
+      }
+    dependencies:
+      '@actions/http-client': 2.2.0
+      uuid: 8.3.2
+    dev: false
+
+  /@actions/http-client@2.2.0:
+    resolution:
+      {
+        integrity: sha512-q+epW0trjVUUHboliPb4UF9g2msf+w61b32tAkFEwL/IwP0DQWgbCMM0Hbe3e3WXSKz5VcUXbzJQgy8Hkra/Lg==,
+      }
+    dependencies:
+      tunnel: 0.0.6
+      undici: 5.27.2
+    dev: false
+
+  /@fastify/busboy@2.1.0:
+    resolution:
+      {
+        integrity: sha512-+KpH+QxZU7O4675t3mnkQKcZZg56u+K/Ct2K+N2AZYNVK8kyeo/bI18tI8aPm3tvNNRyTWfj6s5tnGNlcbQRsA==,
+      }
+    engines: { node: '>=14' }
+    dev: false
+
   /ansi-escapes@5.0.0:
     resolution:
       {
@@ -171,6 +207,17 @@ packages:
     dependencies:
       to-regex-range: 5.0.1
     dev: true
+
+  /fsevents@2.3.2:
+    resolution:
+      {
+        integrity: sha512-xiqMQR4xAeHTuB9uWm+fFRcIOgKBMiOBP+eXiyT7jsgVCq1bkVygt00oASowB7EdtpOHaaPgKt812P9ab+DDKA==,
+      }
+    engines: { node: ^8.16.0 || ^10.6.0 || >=11.0.0 }
+    os: [darwin]
+    requiresBuild: true
+    dev: false
+    optional: true
 
   /get-stream@8.0.1:
     resolution:
@@ -391,6 +438,28 @@ packages:
     hasBin: true
     dev: true
 
+  /playwright-core@1.40.0:
+    resolution:
+      {
+        integrity: sha512-fvKewVJpGeca8t0ipM56jkVSU6Eo0RmFvQ/MaCQNDYm+sdvKkMBBWTE1FdeMqIdumRaXXjZChWHvIzCGM/tA/Q==,
+      }
+    engines: { node: '>=16' }
+    hasBin: true
+    dev: false
+
+  /playwright@1.40.0:
+    resolution:
+      {
+        integrity: sha512-gyHAgQjiDf1m34Xpwzaqb76KgfzYrhK7iih+2IzcOCoZWr/8ZqmdBw+t0RU85ZmfJMgtgAiNtBQ/KS2325INXw==,
+      }
+    engines: { node: '>=16' }
+    hasBin: true
+    dependencies:
+      playwright-core: 1.40.0
+    optionalDependencies:
+      fsevents: 2.3.2
+    dev: false
+
   /prettier@3.1.0:
     resolution:
       {
@@ -510,6 +579,14 @@ packages:
       is-number: 7.0.0
     dev: true
 
+  /tunnel@0.0.6:
+    resolution:
+      {
+        integrity: sha512-1h/Lnq9yajKY2PEbBadPXj3VxsDDu844OnaAo52UVmIzIvwwtBPIuNvkjuzBlTWpfJyUbG3ez0KSBibQkj4ojg==,
+      }
+    engines: { node: '>=0.6.11 <=0.7.0 || >=0.7.3' }
+    dev: false
+
   /type-fest@1.4.0:
     resolution:
       {
@@ -517,6 +594,24 @@ packages:
       }
     engines: { node: '>=10' }
     dev: true
+
+  /undici@5.27.2:
+    resolution:
+      {
+        integrity: sha512-iS857PdOEy/y3wlM3yRp+6SNQQ6xU0mmZcwRSriqk+et/cwWAtwmIGf6WkoDN2EK/AMdCO/dfXzIwi+rFMrjjQ==,
+      }
+    engines: { node: '>=14.0' }
+    dependencies:
+      '@fastify/busboy': 2.1.0
+    dev: false
+
+  /uuid@8.3.2:
+    resolution:
+      {
+        integrity: sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg==,
+      }
+    hasBin: true
+    dev: false
 
   /which@2.0.2:
     resolution:
