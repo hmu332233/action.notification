@@ -11,6 +11,9 @@ dependencies:
   '@actions/github':
     specifier: ^6.0.0
     version: 6.0.0
+  '@octokit/rest':
+    specifier: ^20.0.2
+    version: 20.0.2
   playwright:
     specifier: ^1.40.0
     version: 1.40.0
@@ -134,6 +137,18 @@ packages:
       '@octokit/types': 12.3.0
     dev: false
 
+  /@octokit/plugin-request-log@4.0.0(@octokit/core@5.0.2):
+    resolution:
+      {
+        integrity: sha512-2uJI1COtYCq8Z4yNSnM231TgH50bRkheQ9+aH8TnZanB6QilOnx8RMD2qsnamSOXtDj0ilxvevf5fGsBhBBzKA==,
+      }
+    engines: { node: '>= 18' }
+    peerDependencies:
+      '@octokit/core': '>=5'
+    dependencies:
+      '@octokit/core': 5.0.2
+    dev: false
+
   /@octokit/plugin-rest-endpoint-methods@10.1.5(@octokit/core@5.0.2):
     resolution:
       {
@@ -170,6 +185,19 @@ packages:
       '@octokit/request-error': 5.0.1
       '@octokit/types': 12.3.0
       universal-user-agent: 6.0.1
+    dev: false
+
+  /@octokit/rest@20.0.2:
+    resolution:
+      {
+        integrity: sha512-Ux8NDgEraQ/DMAU1PlAohyfBBXDwhnX2j33Z1nJNziqAfHi70PuxkFYIcIt8aIAxtRE7KVuKp8lSR8pA0J5iOQ==,
+      }
+    engines: { node: '>= 18' }
+    dependencies:
+      '@octokit/core': 5.0.2
+      '@octokit/plugin-paginate-rest': 9.1.4(@octokit/core@5.0.2)
+      '@octokit/plugin-request-log': 4.0.0(@octokit/core@5.0.2)
+      '@octokit/plugin-rest-endpoint-methods': 10.1.5(@octokit/core@5.0.2)
     dev: false
 
   /@octokit/types@12.3.0:
