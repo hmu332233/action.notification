@@ -1,9 +1,8 @@
 import * as core from '@actions/core';
 import { chromium } from 'playwright';
-import { Octokit } from '@octokit/core';
 import * as github from '@actions/github';
 
-const octokit = new Octokit({ auth: process.env.GITHUB_TOKEN });
+const octokit = github.getOctokit(process.env.GITHUB_TOKEN);
 
 const URL = 'https://store.sony.co.kr/product-view/114077335';
 // const URL = 'https://store.sony.co.kr/product-view/102263891';
@@ -38,6 +37,7 @@ async function run() {
 
 async function createIssue(title, body) {
   const context = github.context;
+
   await octokit.issues.create({
     ...context.repo,
     title,
