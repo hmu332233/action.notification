@@ -1,5 +1,9 @@
 import * as core from '@actions/core';
 import { chromium } from 'playwright';
+import { Octokit } from '@octokit/core';
+import * as github from '@actions/github';
+
+const octokit = new Octokit({ auth: process.env.GITHUB_TOKEN });
 
 const URL = 'https://store.sony.co.kr/product-view/114077335';
 // const URL = 'https://store.sony.co.kr/product-view/102263891';
@@ -25,6 +29,20 @@ async function run() {
   core.setOutput('isPurchaseAvailable', isPurchaseAvailable);
 
   await browser.close();
+
+  await createIssue(
+    '구매 상태',
+    `isPurchaseAvailable: ${isPurchaseAvailable}\n\nURL: ${URL}`,
+  );
+}
+
+async function createIssue(title, body) {
+  const context = github.context;
+  await octokit.issues.create({
+    ...context.repo,
+    title,
+    body,
+  });
 }
 
 run();
