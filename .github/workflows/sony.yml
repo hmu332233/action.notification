@@ -41,6 +41,6 @@ jobs:
       - name: Execute
         id: Execute
         shell: bash
-        run: pnpm start
+        run: pnpm --filter sony-buds start
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
